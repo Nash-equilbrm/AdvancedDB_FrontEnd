@@ -25,7 +25,9 @@
 .App-link {
   color: rgb(112, 76, 182);
 }
-
+.main-page{
+  background-color: gray;
+}
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);
@@ -35,5 +37,121 @@
   }
   100% {
     transform: translateY(0px);
+  }
+}
+
+/* Custom styles for forum categories */
+.category-block {
+  color: hsla(var(--xf-textColor));
+  background: white;
+  border-width: 1px;
+  border-style: solid;
+  border-top-color: hsla(210, 5%, calc(calc(92% - (1 * 16%)) + (1 * 4%)), 1);
+  border-right-color: hsla(210, 5%, calc(92% - (1 * 16%)), 1);
+  border-bottom-color: hsla(210, 5%, calc(calc(92% - (1 * 16%)) - (1 * 4%)), 1);
+  border-left-color: hsla(210, 5%, calc(92% - (1 * 16%)), 1);
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-top: 20px;
+}
+
+
+.category-title {
+
+    margin: 0;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: hsla(var(--xf-majorHeadingTextColor));
+    background: hsla(var(--xf-majorHeadingBg));
+    border-bottom: 1px solid hsla(210, 5%, calc(calc(92% - (1 * 16%)) + (1 * 4%)), 1);
+    background:white;
+}
+
+.subcategory-card {
+  background: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.subcategory-card:hover {
+  background: #f8f9fa;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.subcategory-title {
+  color: #34495e;
+  font-weight: 500;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1025px) {
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Header styles */
+header {
+  top: 0;
+  z-index: 50;
+  background: hsla(214, 56%, 21%, 1);
+  
+}
+header a{
+  text-decoration: none;
+}
+
+/* Footer styles */
+footer {
+margin-top: auto;
+  background-color:black;
+  color:white
+}
+
+/* Main content styles */
+main {
+  min-height: calc(100vh - 4rem - 20rem); /* Viewport height - header height - footer height */
+}
+
+/* Navigation link styles */
+nav a {
+color:hsla(214, 56%, 71%, 1);
+text-decoration: none;
+margin-left: 20px;
+
+}
+
+/* Footer link styles */
+footer a {
+  transition: color 0.3s ease;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  header {
+    padding: 0.5rem 0;
+  }
+  
+  footer {
+    padding: 2rem 0;
   }
 }

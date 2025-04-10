@@ -1,8 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { setupListeners } from "@reduxjs/toolkit/query"
+import forumReducer from '../features/forum/forumSlice'
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    forum: forumReducer,
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(),
 })
