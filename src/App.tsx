@@ -7,8 +7,7 @@ import { LoginPage } from './features/auth/LoginPage';
 import { RegisterPage } from './features/auth/RegisterPage';
 
 const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
-  const token = localStorage.getItem('token');
-  return token ? <>{children}</> : <Navigate to="/login" />;
+  return <>{children}</>
 };
 import ThreadPage from './pages/ThreadPage';
 import PostPage from './pages/PostPage';
