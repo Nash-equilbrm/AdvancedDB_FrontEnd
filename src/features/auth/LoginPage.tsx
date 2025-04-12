@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { authApi, LoginCredentials } from './api';
+import { loginSuccess } from './authSlice';
 import './LoginPage.css';
 
 export const LoginPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [credentials, setCredentials] = useState<LoginCredentials>({
     username: '',
     password: '',
@@ -20,6 +23,7 @@ export const LoginPage = () => {
     try {
       const response = await authApi.login(credentials);
       localStorage.setItem('token', response.access_token);
+      dispatch(loginSuccess(response.access_token));
       navigate('/');
     } catch (err) {
       setError('Invalid username or password');
