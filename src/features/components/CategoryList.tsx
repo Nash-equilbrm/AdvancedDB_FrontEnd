@@ -21,8 +21,9 @@ const CategoryList: React.FC<CategoryListProps> = ({ categories }) => {
                   to={`/thread/${child.id}/${category.id}`}
                   className="block"
                 >
-                  <div className="subcategory-card p-4 hover:bg-green-50 transition-colors">
+                  <div className="subcategory-card p-4 hover:bg-green-50 transition-colors flex justify-between items-center">
                     <h3 className="subcategory-title">{child.title}</h3>
+                    <span className="subcategory-thread-count text-sm text-gray-500">{child.children_count} threads</span>
                   </div>
                 </Link>
               ))}

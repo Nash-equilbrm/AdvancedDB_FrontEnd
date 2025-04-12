@@ -1,4 +1,9 @@
 .block{
+    display: flex;
     text-decoration: none;
-    padding-left: -100px;
+    justify-content: center;
+}
+
+.thread_info_block{
+    text-decoration: none;
 }
