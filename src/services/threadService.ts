@@ -13,7 +13,7 @@ export const fetchThreads = async (
     `${API_URL}/api/v1/thread/{threadId}/get_third_level_thread`,
     {
       params: {
-        parent_thread_id:threadId,
+        category_id:threadId,
         limit,
         offset,
       },

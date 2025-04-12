@@ -14,6 +14,7 @@ const PostPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(1);
   const [postContent, setPostContent] = useState('');
+  const [pageInput, setPageInput] = useState('');
   const dispatch = useDispatch();
   const { posts, loading, error } = useSelector((state: RootState) => state.post);
 
@@ -64,6 +65,13 @@ const PostPage: React.FC = () => {
     }
   };
 
+  const handlePageInputSubmit = () => {
+    const page = parseInt(pageInput);
+    if (page && page > 0) {
+      handlePageChange(page);
+    }
+  };
+
   if (loading) return <div className="text-center py-8">Loading...</div>;
   if (error) return <div className="text-center py-8 text-red-500">{error}</div>;
 
@@ -94,24 +102,40 @@ const PostPage: React.FC = () => {
       
       {/* Pagination */}
       {posts.length > 0 && (
-        <div className="flex justify-center mt-8">
-          <nav className="flex items-center space-x-2">
+        <div className="pagination-container flex justify-center mt-8">
+          <div className="pagination-buttons flex space-x-4">
             <button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className="px-3 py-1 rounded-md bg-gray-200 text-gray-700 disabled:opacity-50"
+              className="pagination-button pagination-button-prev"
             >
               Previous
             </button>
             
+            <div className="page-input-container flex items-center space-x-2">
+              <input
+                type="number"
+                value={pageInput}
+                onChange={(e) => setPageInput(e.target.value)}
+                placeholder="Page"
+                className="page-input"
+              />
+              <button
+                onClick={handlePageInputSubmit}
+                className="pagination-button pagination-button-go"
+              >
+                Go
+              </button>
+            </div>
+            
             <button
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={posts.length < ITEMS_PER_PAGE}
-              className="px-3 py-1 rounded-md bg-gray-200 text-gray-700 disabled:opacity-50"
+              className="pagination-button pagination-button-next"
             >
               Next
             </button>
-          </nav>
+          </div>
         </div>
       )}
     </div>
