@@ -72,15 +72,12 @@ body {
   color: hsla(var(--xf-textColor));
   background: white;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(180, 180, 180, 0.1);
-  border-style: solid;
-  border-top-color: hsla(210, 5%, calc(calc(92% - (1 * 16%)) + (1 * 4%)), 1);
-  border-right-color: hsla(210, 5%, calc(92% - (1 * 16%)), 1);
-  border-bottom-color: hsla(210, 5%, calc(calc(92% - (1 * 16%)) - (1 * 4%)), 1);
-  border-left-color: hsla(210, 5%, calc(92% - (1 * 16%)), 1);
   margin-left: 80px;
   margin-right: 80px;
-  margin-top: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-style: solid;
+  border-color: #e6e6e6;
 }
 
 
@@ -90,17 +87,21 @@ body {
     font-weight: 400;
     text-decoration: none;
     font-size: 1.25rem;
-    color: hsla(var(--xf-majorHeadingTextColor));
+    color:#808080;
     background: hsla(var(--xf-majorHeadingBg));
     border-bottom: 1px solid hsla(210, 5%, calc(calc(92% - (1 * 16%)) + (1 * 4%)), 1);
     background:white;
+    margin: 10px;
 }
 
 .subcategory-card {
+  width: 100%;
+  display: flex;
   background: white;
   border-radius: 8px;
   transition: all 0.3s ease;
   cursor: pointer;
+  justify-content: space-between;
 }
 
 .subcategory-card:hover {
@@ -109,8 +110,14 @@ body {
 }
 
 .subcategory-title {
-  color: #34495e;
+  color: #727e8a;
   font-weight: 500;
+  margin-left: 20px;
+}
+
+.subcategory-thread-count{
+  margin-right: 20px;
+  color: #2fa3e2;
 }
 
 /* Responsive styles */

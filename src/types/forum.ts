@@ -4,6 +4,7 @@ export interface ForumCategory {
   level: number;
   user_id: number;
   parent_id: number | null;
+  children_count: number;
   children: ForumCategory[];
 }
 
