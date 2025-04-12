@@ -4,7 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../app/store';
 import { setPosts, setLoading, setError } from '../post/postSlice';
 import { fetchPosts, submitPost } from '../../services/postService';
+import { fetchSimilarThreads } from '../../services/threadService';
 import PostList from '../components/PostList';
+import SimilarThreads from '../components/SimilarThreads.tsx';
+import { SimilarThread } from '../../types/thread';
 import './PostPage.css';
 
 const ITEMS_PER_PAGE = 10;
@@ -15,6 +18,7 @@ const PostPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postContent, setPostContent] = useState('');
   const [pageInput, setPageInput] = useState('');
+  const [similarThreads, setSimilarThreads] = useState<SimilarThread[]>([]);
   const dispatch = useDispatch();
   const { posts, loading, error } = useSelector((state: RootState) => state.post);
 
@@ -42,6 +46,21 @@ const PostPage: React.FC = () => {
     loadPosts();
   }, [dispatch, threadId, currentPage]);
 
+  useEffect(() => {
+    const loadSimilarThreads = async () => {
+      if (!threadId) return;
+
+      try {
+        const data = await fetchSimilarThreads(parseInt(threadId));
+        setSimilarThreads(data);
+      } catch (err) {
+        console.error('Failed to load similar threads:', err);
+      }
+    };
+
+    loadSimilarThreads();
+  }, [threadId]);
+
   const handlePageChange = (page: number) => {
     setSearchParams({ page: page.toString() });
   };
@@ -61,7 +80,6 @@ const PostPage: React.FC = () => {
       dispatch(setPosts(data));
     } catch (error) {
       console.error('Error submitting post:', error);
-      // You might want to show an error message to the user here
     }
   };
 
@@ -137,6 +155,11 @@ const PostPage: React.FC = () => {
             </button>
           </div>
         </div>
+      )}
+
+      {/* Similar Threads */}
+      {similarThreads.length > 0 && (
+        <SimilarThreads threads={similarThreads} />
       )}
     </div>
   );
