@@ -1,0 +1,49 @@
+.thread_block {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+  gap: 1.5rem;
+  margin: 0 80px;
+  margin-top: 20px;
+}
+
+.thread_block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.thread_block:hover::before {
+  opacity: 1;
+}
+
+.thread_block h3 {
+  position: relative;
+  z-index: 1;
+}
+.thread_block a{
+  text-decoration: none;
+  color: hsla(214, 56%, 71%, 1);;
+}
+.thread_block .replies-count {
+  position: relative;
+  z-index: 1;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+}
+
+.thread_block:hover .replies-count {
+  background: rgba(59, 130, 246, 0.2);
+} 

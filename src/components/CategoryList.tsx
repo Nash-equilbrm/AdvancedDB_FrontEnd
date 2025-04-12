@@ -1,5 +1,6 @@
 import React from 'react';
 import { ForumCategory } from '../types/forum';
+import { Link } from 'react-router-dom';
 
 interface CategoryListProps {
   categories: ForumCategory | ForumCategory[];
@@ -15,9 +16,15 @@ const CategoryList: React.FC<CategoryListProps> = ({ categories }) => {
             <h2 className="text-xl font-bold mb-4 category-title">{category.title}</h2>
             <div className="category-grid gap-4">
               {category.children.map(child => (
-                <div key={child.id} className="subcategory-card p-4">
-                  <h3 className="subcategory-title">{child.title}</h3>
-                </div>
+                <Link 
+                  key={child.id} 
+                  to={`/thread/${child.id}/${category.id}`}
+                  className="block"
+                >
+                  <div className="subcategory-card p-4 hover:bg-green-50 transition-colors">
+                    <h3 className="subcategory-title">{child.title}</h3>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>
