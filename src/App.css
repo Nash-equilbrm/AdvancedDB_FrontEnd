@@ -1,3 +1,30 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+/* Full screen center alignment */
+.center-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+/* Optional content styling inside the page */
+.homepage-content {
+  width: 100%;
+  max-width: 800px;
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
 .App {
   text-align: center;
 }
@@ -26,7 +53,7 @@
   color: rgb(112, 76, 182);
 }
 .main-page{
-  background-color: gray;
+  background-color: rgb(234, 234, 234);
 }
 @keyframes App-logo-float {
   0% {
@@ -45,7 +72,7 @@
   color: hsla(var(--xf-textColor));
   background: white;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(180, 180, 180, 0.1);
   border-style: solid;
   border-top-color: hsla(210, 5%, calc(calc(92% - (1 * 16%)) + (1 * 4%)), 1);
   border-right-color: hsla(210, 5%, calc(92% - (1 * 16%)), 1);
@@ -89,7 +116,7 @@
 /* Responsive styles */
 @media (max-width: 768px) {
   .category-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 0fr;
   }
 }
 

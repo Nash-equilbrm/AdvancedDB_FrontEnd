@@ -1,5 +1,5 @@
 import React from 'react';
-import { ForumCategory } from '../types/forum';
+import { ForumCategory } from '../../types/forum';
 import { Link } from 'react-router-dom';
 
 interface CategoryListProps {

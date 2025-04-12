@@ -18,4 +18,23 @@ export const fetchPosts = async (
     }
   );
   return response.data;
+};
+
+export const submitPost = async (threadId: number, content: string): Promise<void> => {
+  var access_token = localStorage.getItem('token')
+  const response = await fetch(`${API_URL}/api/v1/thread/${threadId}/post`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${access_token}`
+    },
+    body: JSON.stringify({
+      content,
+      quote_ids: []
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to submit post');
+  }
 }; 

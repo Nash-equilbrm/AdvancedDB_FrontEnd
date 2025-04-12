@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ForumCategory } from '../types/forum';
-import { setCategories, setLoading, setError } from '../features/forum/forumSlice';
-import { fetchForumCategories } from '../services/forumService';
-import { RootState } from '../app/store';
+import { setCategories, setLoading, setError } from '../forum/forumSlice';
+import { fetchForumCategories } from '../../services/forumService';
+import { RootState } from '../../app/store';
 import CategoryList from '../components/CategoryList';
+import './HomePage.css'; // Make sure to import the CSS file
 
 const HomePage: React.FC = () => {
   const dispatch = useDispatch();
@@ -15,8 +15,6 @@ const HomePage: React.FC = () => {
       try {
         dispatch(setLoading(true));
         const data = await fetchForumCategories();
-        console.log(data);
-
         dispatch(setCategories(data));
       } catch (err) {
         dispatch(setError('Failed to load categories'));
@@ -28,14 +26,16 @@ const HomePage: React.FC = () => {
     loadCategories();
   }, [dispatch]);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <div className="center-container">Loading...</div>;
+  if (error) return <div className="center-container">Error: {error}</div>;
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <CategoryList categories={categories} />
+    <div className="center-container">
+      <div className="homepage-content">
+        <CategoryList categories={categories} />
+      </div>
     </div>
   );
 };
 
-export default HomePage; 
+export default HomePage;

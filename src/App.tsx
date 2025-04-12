@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import HomePage from './features/pages/HomePage';
+import { Header } from './features/components/Header';
+import Footer from './features/components/Footer';
 import './App.css';
 import { LoginPage } from './features/auth/LoginPage';
 import { RegisterPage } from './features/auth/RegisterPage';
@@ -9,8 +9,8 @@ import { RegisterPage } from './features/auth/RegisterPage';
 const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>
 };
-import ThreadPage from './pages/ThreadPage';
-import PostPage from './pages/PostPage';
+import ThreadPage from './features/pages/ThreadPage';
+import PostPage from './features/pages/PostPage';
 
 function App() {
   return (

@@ -39,7 +39,7 @@ export const RegisterPage = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2>Register</h2>
+        <h2>Đăng ký</h2>
         {error && <div className="error-message">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -80,9 +80,9 @@ export const RegisterPage = () => {
           </button>
         </form>
         <div className="mt-4 text-center">
-          <span className="text-gray-600">Already have an account? </span>
+          <span className="text-gray-600">Bạn đã có tài khoản? </span>
           <Link to="/login" className="text-blue-600 hover:underline">
-            Login here
+            Đăng nhập tại đây.
           </Link>
         </div>
       </div>

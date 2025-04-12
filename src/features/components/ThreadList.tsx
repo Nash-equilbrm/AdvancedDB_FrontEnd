@@ -1,5 +1,5 @@
 import React from 'react';
-import { Thread } from '../types/thread';
+import { Thread } from '../../types/thread';
 import { Link } from 'react-router-dom';
 import './ThreadList.css';
 

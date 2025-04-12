@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../app/store';
-import { setThreads, setLoading, setError } from '../features/thread/threadSlice';
-import { fetchThreads } from '../services/threadService';
+import { RootState } from '../../app/store';
+import { setThreads, setLoading, setError } from '../thread/threadSlice';
+import { fetchThreads } from '../../services/threadService';
 import ThreadList from '../components/ThreadList';
+import './ThreadPage.css';
 
 const ITEMS_PER_PAGE = 10;
 
