@@ -37,4 +37,16 @@ export const submitPost = async (threadId: number, content: string): Promise<voi
   if (!response.ok) {
     throw new Error('Failed to submit post');
   }
+};
+
+export const fetchPostsByIds = async (postIds: number[]): Promise<PostResponse[]> => {
+  const response = await axios.get(
+    `${API_URL}/api/v1/post/`,
+    {
+      params: {
+        post_ids: postIds.join(',')
+      }
+    }
+  );
+  return response.data;
 }; 

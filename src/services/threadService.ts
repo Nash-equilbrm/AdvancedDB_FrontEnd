@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ThreadResponse } from '../types/thread';
+import { ThreadResponse, SimilarThreadResponse } from '../types/thread';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
@@ -16,6 +16,20 @@ export const fetchThreads = async (
         category_id:threadId,
         limit,
         offset,
+      },
+    }
+  );
+  return response.data;
+};
+
+export const fetchSimilarThreads = async (
+  threadId: number
+): Promise<SimilarThreadResponse> => {
+  const response = await axios.get(
+    `${API_URL}/api/v1/thread/similar_threads`,
+    {
+      params: {
+        thread_id: threadId,
       },
     }
   );

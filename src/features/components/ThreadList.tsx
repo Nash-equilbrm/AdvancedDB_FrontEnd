@@ -15,7 +15,7 @@ const ThreadList: React.FC<ThreadListProps> = ({ threads }) => {
           key={thread.id}
           className="thread_block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-blue-500"
         >
-          <Link to={`/thread/${thread.id}/posts`} className="block">
+          <Link to={`/thread/${thread.id}/posts`} className="thread_info_block">
             <div className="flex items-start justify-between">
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2 hover:text-blue-600 transition-colors">
