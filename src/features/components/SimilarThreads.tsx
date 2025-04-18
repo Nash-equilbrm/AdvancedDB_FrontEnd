@@ -1,5 +1,6 @@
 import React from 'react';
 import { SimilarThread } from '../../types/thread';
+import { Link } from 'react-router-dom';
 import './SimilarThreads.css';
 
 interface SimilarThreadsProps {
@@ -17,9 +18,9 @@ const SimilarThreads: React.FC<SimilarThreadsProps> = ({ threads }) => {
       <div className="threads-list">
         {threads.map((thread) => (
           <div key={thread.id} className="thread-item">
-            <a href={`/thread/${thread.id}`} className="thread-title">
+            <Link to={`/thread/${thread.id}/posts`} className="thread-title">
               {thread.title}
-            </a>
+            </Link>
             <div className="thread-meta">
               
             </div>
