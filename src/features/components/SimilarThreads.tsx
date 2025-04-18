@@ -13,7 +13,7 @@ const SimilarThreads: React.FC<SimilarThreadsProps> = ({ threads }) => {
 
   return (
     <div className="similar-threads">
-      <h3>Similar Threads</h3>
+      <h3>Chủ đề tương tự</h3>
       <div className="threads-list">
         {threads.map((thread) => (
           <div key={thread.id} className="thread-item">
