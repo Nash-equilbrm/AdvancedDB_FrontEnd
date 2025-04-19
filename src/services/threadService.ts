@@ -34,4 +34,14 @@ export const fetchSimilarThreads = async (
     }
   );
   return response.data;
+};
+
+export const fetchTrendingThreads = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/api/v1/thread/trending/`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching trending threads:', error);
+    throw error;
+  }
 }; 
